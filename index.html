@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>MD Abdullah Al Noman | Data Scientist | AIUB</title>
-    <!-- Google Fonts + Font Awesome 6 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
+        /* ====== ALL CSS HERE ====== */
         :root {
             --primary: #1f6d93;
             --primary-light: #288fbb;
@@ -17,7 +18,7 @@
             --card-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
             --glow: 0 0 25px rgba(43, 140, 176, 0.35);
             --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --bg-dark: #1a2b3c;  /* deeper background for bubble visibility */
+            --bg-dark: #1a2b3c;
             --bg-mid: #243547;
             --text-light: #e0ecf4;
             --text-muted: #b8ccde;
@@ -39,9 +40,12 @@
             line-height: 1.5;
             overflow-x: hidden;
             position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* ────────── Animated background particles ────────── */
+        /* Animated background particles */
         .bg-particles {
             position: fixed;
             top: 0;
@@ -79,22 +83,7 @@
             100% { transform: translateY(-15vh) scale(1.4) rotate(360deg); opacity: 0; }
         }
 
-        /* ────────── Scroll reveal ────────── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(45px);
-            transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
-
-        /* ────────── Header / Navbar ────────── */
+        /* Header / Navbar */
         header {
             display: flex;
             justify-content: space-between;
@@ -142,6 +131,7 @@
             font-size: 0.95rem;
             position: relative;
             padding-bottom: 4px;
+            cursor: pointer;
         }
         nav a::after {
             content: '';
@@ -161,6 +151,12 @@
         nav a:hover::after {
             transform: translateX(-50%) scaleX(1);
         }
+        nav a.active {
+            color: #ffffff;
+        }
+        nav a.active::after {
+            transform: translateX(-50%) scaleX(1);
+        }
         .menu-toggle {
             display: none;
             font-size: 1.6rem;
@@ -172,11 +168,16 @@
             transform: rotate(90deg);
         }
 
-        /* ────────── Sections ────────── */
+        /* Sections - All hidden by default, only active one visible */
         .section {
             padding: 5rem 5%;
             position: relative;
             z-index: 1;
+            flex: 1;
+            display: none; /* Hidden by default */
+        }
+        .section.active {
+            display: block; /* Only active section shows */
         }
         .container {
             max-width: 1300px;
@@ -212,7 +213,7 @@
             50% { width: 100px; opacity: 1; }
         }
 
-        /* ────────── Hero ────────── */
+        /* Hero Section - Special styling */
         .hero {
             background: linear-gradient(125deg, #1e3142 0%, #243b50 55%, #1a2e3f 100%);
             border-radius: 0 0 3rem 3rem;
@@ -367,7 +368,7 @@
             50% { transform: scale(1.08); }
         }
 
-        /* ────────── Cards & Grids ────────── */
+        /* Cards & Grids */
         .info-grid,
         .about-grid {
             display: grid;
@@ -436,7 +437,7 @@
             color: #a0d8f0;
         }
 
-        /* ────────── Education Table ────────── */
+        /* Education Table */
         .edu-table-wrapper {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(8px);
@@ -472,7 +473,7 @@
             transform: scale(1.005);
         }
 
-        /* ────────── Skills ────────── */
+        /* Skills */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -564,7 +565,7 @@
             background: rgba(160,216,240,0.1);
         }
 
-        /* ────────── Projects ────────── */
+        /* Projects */
         .projects-grid {
             display: flex;
             flex-wrap: wrap;
@@ -645,7 +646,7 @@
             text-decoration: underline;
         }
 
-        /* ────────── Experience / Activity ────────── */
+        /* Experience / Activity */
         .exp-cards,
         .activity-grid {
             display: grid;
@@ -683,7 +684,7 @@
             transform: scale(1.2) rotate(-5deg);
         }
 
-        /* ────────── Achievements ────────── */
+        /* Achievements */
         .achievement-list {
             display: flex;
             flex-wrap: wrap;
@@ -722,7 +723,7 @@
             box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
         }
 
-        /* ────────── Contact ────────── */
+        /* Contact */
         .contact-wrapper {
             background: rgba(255,255,255,0.08);
             backdrop-filter: blur(8px);
@@ -752,7 +753,7 @@
             color: #7ec8e0;
         }
 
-        /* ────────── Footer ────────── */
+        /* Footer */
         footer {
             background: #0b1a26;
             color: #a0d8f0;
@@ -760,6 +761,7 @@
             padding: 1.8rem;
             position: relative;
             z-index: 1;
+            margin-top: auto;
         }
         footer i.fa-heart {
             animation: heartBeat 1.2s ease-in-out infinite;
@@ -771,7 +773,7 @@
             60% { transform: scale(1); }
         }
 
-        /* ────────── Cursor glow dot ────────── */
+        /* Cursor glow dot */
         .cursor-glow {
             position: fixed;
             width: 22px;
@@ -789,7 +791,7 @@
             50% { box-shadow: 0 0 28px rgba(160,216,240,0.9); }
         }
 
-        /* ────────── Mobile ────────── */
+        /* Mobile */
         @media (max-width: 860px) {
             nav {
                 display: none;
@@ -842,47 +844,38 @@
         .note-placeholder:hover {
             background: rgba(255,255,255,0.12);
         }
-        /* Override certain backgrounds for readability */
-        .section#objective {
-            background: rgba(0,0,0,0.15);
-        }
-        .section#certifications {
-            background: rgba(0,0,0,0.15);
-        }
-        .section#projects {
-            background: rgba(0,0,0,0.1);
-        }
-        .section#additional > .container > div > div {
-            background: rgba(255,255,255,0.08) !important;
-            backdrop-filter: blur(8px);
-            color: #d4eaf7;
-        }
     </style>
 </head>
 <body>
-
-    <!-- Floating background particles (now clearly visible) -->
     <div class="bg-particles">
         <span></span><span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span><span></span>
     </div>
 
-    <!-- Custom cursor glow -->
     <div class="cursor-glow" id="cursorGlow"></div>
 
     <header id="mainHeader">
         <div class="logo"><h2><span>Noman</span></h2></div>
         <nav id="mainNav">
-            <a href="#home">Home</a><a href="#about">About</a><a href="#objective">Objective</a><a href="#education">Education</a>
-            <a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a>
-            <a href="#achievements">Achievements</a><a href="#certifications">Certifications</a><a href="#activities">Activities</a>
-            <a href="#contact">Contact</a>
+            <a href="#home" class="active" data-section="home">Home</a>
+            <a href="#about" data-section="about">About</a>
+            <a href="#objective" data-section="objective">Objective</a>
+            <a href="#education" data-section="education">Education</a>
+            <a href="#skills" data-section="skills">Skills</a>
+            <a href="#projects" data-section="projects">Projects</a>
+            <a href="#experience" data-section="experience">Experience</a>
+            <a href="#achievements" data-section="achievements">Achievements</a>
+            <a href="#certifications" data-section="certifications">Certifications</a>
+            <a href="#activities" data-section="activities">Activities</a>
+            <a href="#contact" data-section="contact">Contact</a>
         </nav>
         <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
     </header>
 
+    <!-- ====== ALL SECTIONS ====== -->
+
     <!-- Home Section -->
-    <section id="home" class="section hero">
+    <section id="home" class="section hero active">
         <div class="container hero-content">
             <div class="hero-text">
                 <h1>Hi, I'm <span class="gradient-text">MD Abdullah Al Noman</span></h1>
@@ -893,7 +886,7 @@
                     <a href="https://www.linkedin.com/in/noman-abdullah-1ba073261/" target="_blank" class="btn outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
             </div>
-            <div class="hero-avatar reveal">
+            <div class="hero-avatar">
                 <div class="avatar-circle"><i class="fas fa-user-astronaut"></i></div>
             </div>
         </div>
@@ -904,40 +897,40 @@
         <div class="container">
             <h2 class="section-title">📌 About & Personal</h2>
             <div class="about-grid">
-                <div class="basic-info reveal">
+                <div class="basic-info">
                     <p><strong>CS student at AIUB</strong> with deep passion for Data Science & AI/ML. I love building real-world solutions and aspire to create <strong class="highlight">iostream</strong> — an institution that blends tech innovation with education.</p>
                     <p>⚡ Currently diving deeper into production-grade ML pipelines & full-stack AI apps.</p>
                 </div>
-                <div class="basic-info reveal reveal-delay-1">
+                <div class="basic-info">
                     <h3><i class="fas fa-id-card"></i> Contact basics</h3>
                     <ul class="info-list">
                         <li><i class="fas fa-user"></i> MD Abdullah Al Noman</li>
                         <li><i class="fas fa-phone-alt"></i> <a href="tel:01775433109">01775433109</a></li>
-                         <div class="contact-item"><i class="fas fa-envelope"></i> mdabdullahalnoman2636@gmail.com</div>
-                    <div class="contact-item"><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/noman-abdullah-1ba073261/">linkedin.com/in/nomanabdullah</a></div>
-                    <div class="contact-item"><i class="fab fa-github"></i> <a href="https://github.com/nomanabdullah26">github.com/nomanabdullah26</a></div>
+                        <li><i class="fas fa-envelope"></i> mdabdullahalnoman2636@gmail.com</li>
+                        <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/noman-abdullah-1ba073261/">linkedin.com/in/nomanabdullah</a></li>
+                        <li><i class="fab fa-github"></i> <a href="https://github.com/nomanabdullah26">github.com/nomanabdullah26</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Career Objective -->
+    <!-- Objective Section -->
     <section id="objective" class="section">
         <div class="container">
             <h2 class="section-title">🎯 Career Objective</h2>
-            <div class="objective-card reveal">
+            <div class="objective-card">
                 <p><strong>🔭 Role:</strong> Data Scientist & AI Architect</p>
                 <p>🔍 Driving data-led transformation and mentoring young minds.</p>
             </div>
         </div>
     </section>
 
-    <!-- Education -->
+    <!-- Education Section -->
     <section id="education" class="section">
         <div class="container">
             <h2 class="section-title">📖 Academic Journey</h2>
-            <div class="edu-table-wrapper reveal">
+            <div class="edu-table-wrapper">
                 <table class="edu-table">
                     <thead><tr><th>Degree</th><th>Institution</th><th>Result / Year</th></tr></thead>
                     <tbody>
@@ -950,17 +943,17 @@
         </div>
     </section>
 
-    <!-- Skills -->
+    <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container">
             <h2 class="section-title">⚙️ Technical Arsenal</h2>
             <div class="skills-grid">
-                <div class="skill-cat reveal"><h3><i class="fas fa-code"></i> Languages</h3><div class="skill-badges"><span>Java</span><span>Python</span><span>JavaScript</span><span>R</span><span>PHP</span><span>C++</span><span>C</span></div></div>
-                <div class="skill-cat reveal reveal-delay-1"><h3><i class="fas fa-layer-group"></i> Web & Frameworks</h3><div class="skill-badges"><span>HTML5/CSS3</span><span>React</span><span>Spring Boot</span></div></div>
-                <div class="skill-cat reveal reveal-delay-2"><h3><i class="fas fa-brain"></i> AI/ML Stack</h3><div class="skill-badges"><span>TensorFlow</span><span>Pandas</span><span>NumPy</span><span>BeautifulSoup</span><span>Seaborn</span><span>Scikit-learn</span><span>XGBoost</span><span>Matplotlib</span><span>Plotly</span></div></div>
-                <div class="skill-cat reveal reveal-delay-3"><h3><i class="fas fa-tools"></i> Tools & Design</h3><div class="skill-badges"><span>Git</span><span>VS Code</span><span>Eclipse</span><span>MATLAB</span><span>AutoCAD</span><span>Codeblocks</span></div></div>
+                <div class="skill-cat"><h3><i class="fas fa-code"></i> Languages</h3><div class="skill-badges"><span>Java</span><span>Python</span><span>JavaScript</span><span>R</span><span>PHP</span><span>C++</span><span>C</span></div></div>
+                <div class="skill-cat"><h3><i class="fas fa-layer-group"></i> Web & Frameworks</h3><div class="skill-badges"><span>HTML5/CSS3</span><span>React</span><span>Spring Boot</span></div></div>
+                <div class="skill-cat"><h3><i class="fas fa-brain"></i> AI/ML Stack</h3><div class="skill-badges"><span>TensorFlow</span><span>Pandas</span><span>NumPy</span><span>BeautifulSoup</span><span>Seaborn</span><span>Scikit-learn</span><span>XGBoost</span><span>Matplotlib</span><span>Plotly</span></div></div>
+                <div class="skill-cat"><h3><i class="fas fa-tools"></i> Tools & Design</h3><div class="skill-badges"><span>Git</span><span>VS Code</span><span>Eclipse</span><span>MATLAB</span><span>AutoCAD</span><span>Codeblocks</span></div></div>
             </div>
-            <div class="skill-table reveal reveal-delay-1">
+            <div class="skill-table">
                 <h3 style="margin:1rem 0 0.5rem"><i class="fas fa-chart-simple"></i> Core Competencies</h3>
                 <table style="width:100%">
                     <tr style="background:rgba(160,216,240,0.15)"><th>Domain</th><th>Proficiency</th><th>Key Tools</th></tr>
@@ -973,34 +966,34 @@
         </div>
     </section>
 
-    <!-- Projects -->
+    <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
             <h2 class="section-title">🚀 Featured Projects</h2>
-            <p class="section-subtitle reveal" style="margin-bottom:2rem;">✨ A selection of real-world data science, machine learning, and web development projects.</p>
+            <p class="section-subtitle" style="margin-bottom:2rem;">✨ A selection of real-world data science, machine learning, and web development projects.</p>
             <div class="projects-grid">
-                <div class="project-card reveal">
+                <div class="project-card">
                     <div class="project-icon"><i class="fas fa-cloud"></i></div>
                     <h3>Weather Image Classification using Deep Learning</h3>
                     <p>Custom CNN model classifying weather images into 4 categories with 92.35% test accuracy.</p>
                     <div class="tech-stack">Python, TensorFlow/Keras, CNN</div>
                     <div class="project-links"><a href="https://github.com/nomanabdullah26/CVPR-PROJECT/blob/main/CNN_22-47155-1.ipynb" target="_blank" class="repo-link">View on GitHub</a></div>
                 </div>
-                <div class="project-card reveal reveal-delay-1">
+                <div class="project-card">
                     <div class="project-icon"><i class="fas fa-chart-line"></i></div>
                     <h3>122 Years of Climate History</h3>
                     <p>Analyzed 120+ years of temperature & rainfall data with R (Tidyverse).</p>
                     <div class="tech-stack">R, Tidyverse, ggplot2, dplyr</div>
                     <div class="project-links"><a href="https://github.com/nomanabdullah26/Data-Science/blob/main/IDS%20project%20Group%20L.zip" target="_blank" class="repo-link">View on GitHub</a></div>
                 </div>
-                <div class="project-card reveal reveal-delay-2">
+                <div class="project-card">
                     <div class="project-icon"><i class="fas fa-newspaper"></i></div>
                     <h3>Topic Modeling of World News Articles using LDA</h3>
                     <p>NLP pipeline: web scraping, preprocessing, LDA topic modeling on news articles.</p>
                     <div class="tech-stack">Python, NLP, LDA, Web Scraping</div>
                     <div class="project-links"><a href="https://github.com/nomanabdullah26/Data-Science/blob/main/IDS_project_final%20group%20L.zip" target="_blank" class="repo-link">View on GitHub</a></div>
                 </div>
-                <div class="project-card reveal reveal-delay-3">
+                <div class="project-card">
                     <div class="project-icon"><i class="fas fa-hospital"></i></div>
                     <h3>Hospital Management System (Web-Based)</h3>
                     <p>Full-stack PHP/MySQL app with role-based authentication and appointment scheduling.</p>
@@ -1008,38 +1001,38 @@
                     <div class="project-links"><a href="https://github.com/nomanabdullah26/Web-Technology-/tree/main/Hospital%20Management%20System" target="_blank" class="repo-link">View on GitHub</a></div>
                 </div>
             </div>
-            <p class="note-placeholder reveal"><i class="fas fa-code-branch"></i> Explore the repositories for detailed methodology, code, and visualizations.</p>
+            <p class="note-placeholder"><i class="fas fa-code-branch"></i> Explore the repositories for detailed methodology, code, and visualizations.</p>
         </div>
     </section>
 
-    <!-- Experience -->
+    <!-- Experience Section -->
     <section id="experience" class="section">
         <div class="container">
             <h2 class="section-title">💼 Work & Teaching</h2>
             <div class="exp-cards">
-                <div class="exp-item reveal"><i class="fas fa-chalkboard-user"></i><div><h3>Teaching Experience</h3><p>Mentored students in programming (Python, Java, Data structures).</p></div></div>
-                <div class="exp-item reveal reveal-delay-1"><i class="fas fa-chart-simple"></i><div><h3>Data Analyst @ SirioTech</h3><p>Extracted, cleaned & analyzed large datasets. Built dashboards using Python & SQL.</p></div></div>
+                <div class="exp-item"><i class="fas fa-chalkboard-user"></i><div><h3>Teaching Experience</h3><p>Mentored students in programming (Python, Java, Data structures).</p></div></div>
+                <div class="exp-item"><i class="fas fa-chart-simple"></i><div><h3>Data Analyst @ SirioTech</h3><p>Extracted, cleaned & analyzed large datasets. Built dashboards using Python & SQL.</p></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Achievements -->
+    <!-- Achievements Section -->
     <section id="achievements" class="section">
         <div class="container">
             <h2 class="section-title">🏆 Awards & Recognitions</h2>
             <div class="achievement-list">
-                <div class="achieve-item reveal"><i class="fas fa-trophy"></i> IEEE Quiz Contest – 1st Runner-up</div>
-                <div class="achieve-item reveal reveal-delay-1"><i class="fas fa-medal"></i> IEEE Project Idea Competition – Champion</div>
-                <div class="achieve-item reveal reveal-delay-2"><i class="fas fa-award"></i> Academic Excellence Scholarship (AIUB)</div>
+                <div class="achieve-item"><i class="fas fa-trophy"></i> IEEE Quiz Contest – 1st Runner-up</div>
+                <div class="achieve-item"><i class="fas fa-medal"></i> IEEE Project Idea Competition – Champion</div>
+                <div class="achieve-item"><i class="fas fa-award"></i> Academic Excellence Scholarship (AIUB)</div>
             </div>
         </div>
     </section>
 
-    <!-- Certifications -->
+    <!-- Certifications Section -->
     <section id="certifications" class="section">
         <div class="container">
             <h2 class="section-title">📜 Certifications & Badges</h2>
-            <div class="cert-placeholder reveal">
+            <div class="cert-placeholder">
                 <i class="fas fa-certificate fa-2x" style="color:#f39c12;"></i>
                 <p>📸 <strong>Certificate gallery will appear here</strong> — including AI/ML, Data Science, and leadership credentials.</p>
                 <div class="photo-note">🖼️ Ready to upload certificates (TensorFlow, DataCamp, etc.)</div>
@@ -1047,34 +1040,23 @@
         </div>
     </section>
 
-    <!-- Extracurricular -->
+    <!-- Activities Section -->
     <section id="activities" class="section">
         <div class="container">
             <h2 class="section-title">🌟 Volunteering & Leadership</h2>
             <div class="activity-grid">
-                <div class="activity-card reveal"><i class="fas fa-users"></i><div><h3>Clubs</h3><ul><li>AIUB IEEE Student Branch</li><li>ESAB AIUB Unit Face</li></ul></div></div>
-                <div class="activity-card reveal reveal-delay-1"><i class="fas fa-hand-peace"></i><div><h3>Volunteering</h3><p>IEEE SPAVe 6.0, 7.0 | Tech workshops & event coordination</p></div></div>
-                <div class="activity-card reveal reveal-delay-2"><i class="fas fa-crown"></i><div><h3>Leadership</h3><p>Team Head "The CycloManiacs" | Representative of AIUB IEEE Student Branch</p></div></div>
+                <div class="activity-card"><i class="fas fa-users"></i><div><h3>Clubs</h3><ul><li>AIUB IEEE Student Branch</li><li>ESAB AIUB Unit Face</li></ul></div></div>
+                <div class="activity-card"><i class="fas fa-hand-peace"></i><div><h3>Volunteering</h3><p>IEEE SPAVe 6.0, 7.0 | Tech workshops & event coordination</p></div></div>
+                <div class="activity-card"><i class="fas fa-crown"></i><div><h3>Leadership</h3><p>Team Head "The CycloManiacs" | Representative of AIUB IEEE Student Branch</p></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Additional Info -->
-    <section id="additional" class="section">
-        <div class="container">
-            <h2 class="section-title">🌿 Beyond Tech</h2>
-            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-                <div class="reveal" style="border-radius:28px; padding:1.2rem 2rem;"><i class="fas fa-globe"></i> <strong>Languages :</strong> English, Bangla (Native)</div>
-                <div class="reveal reveal-delay-1" style="border-radius:28px; padding:1.2rem 2rem;"><i class="fas fa-heart"></i> <strong>Interests :</strong> Photography, Cycling, Reading, Traveling</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
+    <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
             <h2 class="section-title">📬 Let's Connect</h2>
-            <div class="contact-wrapper reveal">
+            <div class="contact-wrapper">
                 <div class="contact-info">
                     <div class="contact-item"><i class="fas fa-phone-alt"></i> <a href="tel:01775433109">+880 1775433109</a></div>
                     <div class="contact-item"><i class="fas fa-envelope"></i> mdabdullahalnoman2636@gmail.com</div>
@@ -1087,63 +1069,115 @@
     </section>
 
     <footer>
-        <p>© 2026 MD Abdullah Al Noman </p>
+        <p>© 2026 MD Abdullah Al Noman</p>
     </footer>
 
+    <!-- ====== ALL JAVASCRIPT HERE ====== -->
     <script>
-        const menuBtn = document.getElementById('mobile-menu');
-        const nav = document.getElementById('mainNav');
-        if (menuBtn && nav) {
-            menuBtn.addEventListener('click', () => nav.classList.toggle('active'));
-        }
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth' });
-                    if (nav.classList.contains('active')) nav.classList.remove('active');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuBtn = document.getElementById('mobile-menu');
+            const nav = document.getElementById('mainNav');
+            if (menuBtn && nav) {
+                menuBtn.addEventListener('click', () => nav.classList.toggle('active'));
+            }
+
+            // Header scroll effect
+            const header = document.getElementById('mainHeader');
+            window.addEventListener('scroll', () => {
+                if (header) {
+                    header.classList.toggle('scrolled', window.scrollY > 60);
                 }
             });
-        });
-        const header = document.getElementById('mainHeader');
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 60);
-        });
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.12 });
-        revealElements.forEach(el => revealObserver.observe(el));
-        const cursorGlow = document.getElementById('cursorGlow');
-        if (cursorGlow && window.innerWidth > 860) {
-            document.addEventListener('mousemove', (e) => {
-                cursorGlow.style.left = e.clientX + 'px';
-                cursorGlow.style.top = e.clientY + 'px';
-            });
-            document.addEventListener('mouseleave', () => cursorGlow.style.opacity = '0');
-            document.addEventListener('mouseenter', () => cursorGlow.style.opacity = '1');
-        }
-        if (window.innerWidth > 860) {
-            document.querySelectorAll('.project-card').forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const rotateX = ((y - centerY) / centerY) * -5;
-                    const rotateY = ((x - centerX) / centerX) * 5;
-                    card.style.transform = `translateY(-10px) scale(1.02) perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+            // Cursor glow effect (only on desktop)
+            const cursorGlow = document.getElementById('cursorGlow');
+            if (cursorGlow && window.innerWidth > 860) {
+                document.addEventListener('mousemove', (e) => {
+                    cursorGlow.style.left = e.clientX + 'px';
+                    cursorGlow.style.top = e.clientY + 'px';
                 });
-                card.addEventListener('mouseleave', () => card.style.transform = '');
+                document.addEventListener('mouseleave', () => cursorGlow.style.opacity = '0');
+                document.addEventListener('mouseenter', () => cursorGlow.style.opacity = '1');
+            }
+
+            // 3D hover effect for project cards
+            if (window.innerWidth > 860) {
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        const rotateX = ((y - centerY) / centerY) * -5;
+                        const rotateY = ((x - centerX) / centerX) * 5;
+                        card.style.transform = `translateY(-10px) scale(1.02) perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    });
+                    card.addEventListener('mouseleave', () => card.style.transform = '');
+                });
+            }
+
+            // ====== SECTION NAVIGATION (SPA) ======
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('nav a[data-section]');
+
+            function showSection(sectionId) {
+                // Hide all sections
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show the target section
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+
+                // Update active nav link
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.section === sectionId) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Close mobile menu if open
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                }
+
+                // Update URL hash
+                if (window.location.hash !== '#' + sectionId) {
+                    history.pushState(null, null, '#' + sectionId);
+                }
+            }
+
+            // Handle nav link clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.dataset.section;
+                    showSection(sectionId);
+                });
             });
-        }
+
+            // Handle hash change (browser back/forward)
+            window.addEventListener('hashchange', function() {
+                const hash = window.location.hash.replace('#', '');
+                if (hash && document.getElementById(hash)) {
+                    showSection(hash);
+                }
+            });
+
+            // Load initial section from URL hash or default to home
+            const initialHash = window.location.hash.replace('#', '');
+            if (initialHash && document.getElementById(initialHash)) {
+                showSection(initialHash);
+            } else {
+                showSection('home');
+            }
+        });
     </script>
 </body>
 </html>
