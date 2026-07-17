@@ -18,45 +18,11 @@
             padding: 0;
             box-sizing: border-box;
         }
-		        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            font-size: 1.4rem; /* Made it bigger */
-            color: #1A1A2E;
-            transition: transform 0.3s ease; /* Added a subtle hover lift */
-        }
 
-        .nav-logo:hover {
-            transform: scale(1.02); /* Slight grow on hover */
-        }
-
-        .logo-mark {
-            color: #C9A84C;
-            font-size: 1.3rem;
-            animation: spin 15s linear infinite; /* Optional: Keeps the diamond spinning slowly */
-        }
-
-        .logo-text {
-            letter-spacing: -0.5px;
-            /* This creates the shimmering gold gradient effect */
-            background: linear-gradient(90deg, #1A1A2E 0%, #C9A84C 50%, #1A1A2E 100%);
-            background-size: 200% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-            animation: logoShimmer 4s linear infinite;
-            transition: all 0.3s;
-        }
-		        /* --- NEW LOGO ANIMATIONS --- */
+        /* --- NEW LOGO ANIMATIONS --- */
         @keyframes logoShimmer {
             0% { background-position: -200% center; }
             100% { background-position: 200% center; }
-        }
-
-        .logo-text:hover {
-            animation-duration: 1s; /* Speeds up the shimmer when you hover over the text */
         }
 
         html {
@@ -151,6 +117,65 @@
         }
 
         /* ============================================= */
+        /* MOBILE HAMBURGER MENU                        */
+        /* ============================================= */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #1A1A2E;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Show hamburger on mobile */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            /* Hide the old nav and replace with a vertical dropdown */
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 20px 0 30px 0;
+                gap: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1rem;
+                padding: 8px 0;
+            }
+
+            /* Keep Let's Talk button visible */
+            .nav-cta {
+                margin-left: auto; /* Push it to the right */
+            }
+        }
+
+        /* ============================================= */
         /* NAVIGATION                                   */
         /* ============================================= */
         .navbar {
@@ -184,22 +209,34 @@
             align-items: center;
             gap: 10px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.4rem;
             color: #1A1A2E;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.02);
         }
 
         .logo-mark {
             color: #C9A84C;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            animation: spin 15s linear infinite;
         }
 
         .logo-text {
             letter-spacing: -0.5px;
+            background: linear-gradient(90deg, #1A1A2E 0%, #C9A84C 50%, #1A1A2E 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: logoShimmer 4s linear infinite;
+            transition: all 0.3s;
         }
 
         .logo-text:hover {
-            color: #C9A84C;
-            transition: color 0.3s;
+            animation-duration: 1s;
         }
 
         .nav-links {
@@ -252,6 +289,7 @@
             font-weight: 600;
             font-size: 0.85rem;
             transition: all 0.3s;
+            margin-left: auto; /* Pushes it to the right */
         }
 
         .nav-cta:hover {
@@ -849,10 +887,11 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
-            max-width: 850px; /* INCREASED this from 750px to 850px to fit 6 items perfectly */
+            max-width: 850px;
             margin: 15px auto 0;
             padding: 0 10px;
         }
+
         .contact-social-links .social-link {
             display: inline-flex;
             align-items: center;
@@ -891,7 +930,7 @@
         .contact-social-links .social-link.email:hover i { color: #C9A84C; }
         .contact-social-links .social-link.kaggle:hover i { color: #20BEFF; }
         .contact-social-links .social-link.huggingface:hover i { color: #FFD21E; }
-		.contact-social-links .social-link.facebook:hover i { color: #1877F2; }
+        .contact-social-links .social-link.facebook:hover i { color: #1877F2; }
 
         /* ============================================= */
         /* FOOTER                                       */
@@ -1057,12 +1096,22 @@
 </head>
 <body>
 
+    <script>
+        // Function to toggle the mobile menu
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+
     <nav class="navbar">
         <div class="nav-container">
-            <a href<a href="#" class="nav-logo" data-page="home">
+            <a href="#" class="nav-logo" data-page="home">
                 <span class="logo-mark">◆</span>
                 <span class="logo-text">Noman</span>
             </a>
+            
+            <!-- FIXED: Added the missing navigation links back -->
             <ul class="nav-links">
                 <li><a href="#" data-page="home" class="active">Home</a></li>
                 <li><a href="#" data-page="about">About</a></li>
@@ -1071,6 +1120,14 @@
                 <li><a href="#" data-page="blog">Blog</a></li>
                 <li><a href="#" data-page="contact">Contact</a></li>
             </ul>
+            
+            <!-- HAMBURGER ICON -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
             <a href="#" data-page="contact" class="nav-cta">Let's Talk</a>
         </div>
     </nav>
@@ -1144,7 +1201,7 @@
                         </a>
                     </div>
 
-                    <!-- Hero Socials - Updated to include Kaggle and HuggingFace -->
+                    <!-- Hero Socials -->
                     <div class="hero-social">
                         <a href="https://github.com/nomanabdullah26" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                         <a href="https://www.linkedin.com/in/noman-abdullah-1ba073261/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -1481,8 +1538,6 @@
                     </div>
                 </div>
                 <!-- END OF ALBUM SECTION -->
-                
-
             </div>
         </div>
     </section>
@@ -1528,8 +1583,7 @@
                         </div>
                     </div>
                     
-                                         
-                                        <!-- Contact Social Links -->
+                    <!-- Contact Social Links -->
                     <div class="contact-social-links">
                         <a href="https://github.com/nomanabdullah26" target="_blank" class="social-link github">
                             <i class="fab fa-github"></i> GitHub
@@ -1550,8 +1604,6 @@
                             <i class="fab fa-facebook-f"></i> Facebook
                         </a>
                     </div>
-                    </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1559,7 +1611,7 @@
 
     <footer>
         <div class="footer-container">
-            <p>&copy; 2026 MD Abdullah Al Noman. </p>
+            <p>&copy; 2026 MD Abdullah Al Noman.</p>
             <p class="footer-tagline">G#ost</p>
         </div>
     </footer>
