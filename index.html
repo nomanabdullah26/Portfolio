@@ -819,10 +819,17 @@
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .cert-image-wrapper img, .album-image-wrapper img {
+        .cert-image-wrapper img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .album-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.5s ease;
         }
 
@@ -1586,15 +1593,6 @@
                             <span class="cert-badge">Gobeshona Learning</span>
                         </div>
                     </div>
-					<div class="cert-card">
-                        <div class="cert-image-wrapper">
-                            <img src="https://github.com/nomanabdullah26/Portfolio/blob/main/Transferable%20Skills%20with%20AI.jfif" alt="Gobeshona learning (internship on Arduino)" loading="lazy">
-                        </div>
-                        <div class="cert-info">
-                            <h3>Internship on Arduino</h3>
-                            <span class="cert-badge">Gobeshona Learning</span>
-                        </div>
-                    </div>
 
                     <div class="cert-card">
                         <div class="cert-image-wrapper">
@@ -1725,39 +1723,272 @@
                             <span class="cert-badge">Certification</span>
                         </div>
                     </div>
+
+                    <div class="cert-card">
+                        <div class="cert-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Transferable%20Skills%20with%20AI.jfif" alt="Transferable Skills with AI" loading="lazy">
+                        </div>
+                        <div class="cert-info">
+                            <h3>Transferable Skills with AI</h3>
+                            <span class="cert-badge">Certification</span>
+                        </div>
+                    </div>
                 </div>
 
                 <h3 class="activity-subtitle"><i class="fas fa-images"></i> 2. Album</h3>
+                <p style="color: #6A6A8A; margin-bottom: 20px;">A collection of moments from conferences, competitions, workshops, and IEEE events.</p>
                 <div class="album-grid">
+
                     <div class="album-card">
                         <div class="album-image-wrapper">
-                            <img src="event1.jpeg" alt="IEEE Event Highlight" onerror="this.src='https://via.placeholder.com/400x250?text=Event+Photo'" loading="lazy">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/Degital%20Twins%20Conf%20-2.jpg" alt="Digital Twins Conference" loading="lazy">
                         </div>
                         <div class="album-info">
-                            <h3>IEEE Project Idea Presentation</h3>
+                            <h3>Digital Twins Conference</h3>
+                            <span class="album-badge">Conference</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/Degital%20Twins%20Conf%20.jpg" alt="Digital Twins Conference" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>Digital Twins Conference</h3>
+                            <span class="album-badge">Conference</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/EWU%20-3%20poster%20for%20presentation.jpeg" alt="EWU Poster Presentation" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>EWU Poster Presentation</h3>
+                            <span class="album-badge">Poster Presentation</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/EWU-1.jpeg" alt="EWU Event" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>EWU Event</h3>
                             <span class="album-badge">Event Capture</span>
                         </div>
                     </div>
 
                     <div class="album-card">
                         <div class="album-image-wrapper">
-                            <img src="event2.jpeg" alt="AIUB Eco Fest" onerror="this.src='https://via.placeholder.com/400x250?text=Fest+Moments'" loading="lazy">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/EWU-2.jpeg" alt="EWU Event" loading="lazy">
                         </div>
                         <div class="album-info">
-                            <h3>AIUB Eco Fest Moments</h3>
-                            <span class="album-badge">Campus Life</span>
+                            <h3>EWU Event</h3>
+                            <span class="album-badge">Event Capture</span>
                         </div>
                     </div>
 
                     <div class="album-card">
                         <div class="album-image-wrapper">
-                            <img src="workshop.jpeg" alt="Workshop Session" onerror="this.src='https://via.placeholder.com/400x250?text=Workshop+Group'" loading="lazy">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/Ieee%20event%20-aiub1.jpeg" alt="IEEE Event at AIUB" loading="lazy">
                         </div>
                         <div class="album-info">
-                            <h3>IoT Research &amp; Workshop Session</h3>
-                            <span class="album-badge">Group Picture</span>
+                            <h3>IEEE Event at AIUB</h3>
+                            <span class="album-badge">IEEE Event</span>
                         </div>
                     </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/Ieee%20event%20DU-1.jpeg" alt="IEEE Event at DU" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>IEEE Event at DU</h3>
+                            <span class="album-badge">IEEE Event</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/Ieee%20event%20DU-2.jpeg" alt="IEEE Event at DU" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>IEEE Event at DU</h3>
+                            <span class="album-badge">IEEE Event</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/Ieee%20event1.jpeg" alt="IEEE Event" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>IEEE Event</h3>
+                            <span class="album-badge">IEEE Event</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/Ieee%20event2.jpeg" alt="IEEE Event" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>IEEE Event</h3>
+                            <span class="album-badge">IEEE Event</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/Java%20Conf.jpeg" alt="Java Conference" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>Java Conference</h3>
+                            <span class="album-badge">Conference</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/aust%20poster%20presentation%201.jfif" alt="AUST Poster Presentation" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>AUST Poster Presentation</h3>
+                            <span class="album-badge">Poster Presentation</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/aust%20poster%20presentation%202.jfif" alt="AUST Poster Presentation" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>AUST Poster Presentation</h3>
+                            <span class="album-badge">Poster Presentation</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/ieee%20%20event%20uiu3.jfif" alt="IEEE Event at UIU" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>IEEE Event at UIU</h3>
+                            <span class="album-badge">IEEE Event</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/ieee%203.jfif" alt="IEEE Event" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>IEEE Event</h3>
+                            <span class="album-badge">IEEE Event</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/ieee%204.JPG" alt="IEEE Event" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>IEEE Event</h3>
+                            <span class="album-badge">IEEE Event</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/ieee%20event%20uiu2.jpg" alt="IEEE Event at UIU" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>IEEE Event at UIU</h3>
+                            <span class="album-badge">IEEE Event</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/ieee.jpg" alt="IEEE Event" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>IEEE Event</h3>
+                            <span class="album-badge">IEEE Event</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/ieee2.jpg" alt="IEEE Event" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>IEEE Event</h3>
+                            <span class="album-badge">IEEE Event</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/ieee3.jfif" alt="IEEE Event" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>IEEE Event</h3>
+                            <span class="album-badge">IEEE Event</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/iut%20poster%20presentaon%202.jpeg" alt="IUT Poster Presentation" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>IUT Poster Presentation</h3>
+                            <span class="album-badge">Poster Presentation</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/iut%20poster%20presentaon%203.jpeg" alt="IUT Poster Presentation" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>IUT Poster Presentation</h3>
+                            <span class="album-badge">Poster Presentation</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/iut%20poster%20presentaon%204.jpeg" alt="IUT Poster Presentation" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>IUT Poster Presentation</h3>
+                            <span class="album-badge">Poster Presentation</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/iut%20poster%20presentation%201.jpeg" alt="IUT Poster Presentation" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>IUT Poster Presentation</h3>
+                            <span class="album-badge">Poster Presentation</span>
+                        </div>
+                    </div>
+
+                    <div class="album-card">
+                        <div class="album-image-wrapper">
+                            <img src="https://raw.githubusercontent.com/nomanabdullah26/Portfolio/main/Event/java%20conf%202.jpeg" alt="Java Conference" loading="lazy">
+                        </div>
+                        <div class="album-info">
+                            <h3>Java Conference</h3>
+                            <span class="album-badge">Conference</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
