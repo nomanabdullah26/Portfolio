@@ -993,6 +993,183 @@
         }
 
         /* ============================================= */
+        /* BLOG SECTION                                 */
+        /* ============================================= */
+        .blog-post {
+            max-width: 860px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 16px;
+            padding: 48px 44px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+        }
+
+        .blog-post-header {
+            margin-bottom: 30px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .blog-post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 14px;
+            font-size: 0.8rem;
+            color: #8A8AAA;
+        }
+
+        .blog-post-meta .meta-tag {
+            background: rgba(201, 168, 76, 0.12);
+            color: #C9A84C;
+            font-weight: 600;
+            padding: 3px 14px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.7rem;
+        }
+
+        .blog-post-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.9rem, 3vw, 2.6rem);
+            font-weight: 700;
+            color: #1A1A2E;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .blog-post-subtitle {
+            font-size: 1.05rem;
+            color: #6A6A8A;
+            font-style: italic;
+        }
+
+        .blog-post-body {
+            color: #4A4A6A;
+            font-size: 1.02rem;
+            line-height: 1.95;
+        }
+
+        .blog-post-body p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .blog-post-body strong {
+            color: #1A1A2E;
+            font-weight: 600;
+        }
+
+        .blog-post-body .blog-highlight {
+            background: linear-gradient(90deg, rgba(201, 168, 76, 0.18), rgba(201, 168, 76, 0.05));
+            border-left: 4px solid #C9A84C;
+            padding: 20px 24px;
+            border-radius: 0 10px 10px 0;
+            margin: 28px 0;
+            font-size: 1.02rem;
+            color: #1A1A2E;
+        }
+
+        .blog-references {
+            margin-top: 40px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .blog-references h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .blog-references h3 i {
+            color: #C9A84C;
+            font-size: 1.1rem;
+        }
+
+        .reference-item {
+            display: flex;
+            gap: 16px;
+            padding: 18px 20px;
+            background: #F8F9FC;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .reference-item:hover {
+            border-color: rgba(201, 168, 76, 0.3);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            transform: translateX(4px);
+        }
+
+        .reference-number {
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #C9A84C;
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 0.8rem;
+            border-radius: 50%;
+        }
+
+        .reference-content h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1A1A2E;
+            margin-bottom: 4px;
+        }
+
+        .reference-content p {
+            font-size: 0.85rem;
+            color: #6A6A8A;
+            margin-bottom: 6px;
+        }
+
+        .reference-content .source {
+            font-size: 0.78rem;
+            color: #8A8AAA;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .reference-content .source i {
+            color: #C9A84C;
+            font-size: 0.75rem;
+        }
+
+        .blog-back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 28px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #C9A84C;
+            transition: all 0.3s ease;
+        }
+
+        .blog-back-btn:hover {
+            color: #1A1A2E;
+            gap: 12px;
+        }
+
+        /* ============================================= */
         /* RESPONSIVE                                   */
         /* ============================================= */
         @media (max-width: 1024px) {
@@ -1089,6 +1266,16 @@
             .footer-container {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            .blog-post {
+                padding: 32px 24px;
+                border-radius: 12px;
+            }
+
+            .reference-item {
+                flex-direction: column;
+                gap: 10px;
             }
         }
 
@@ -1999,13 +2186,62 @@
             <div class="section-container">
                 <div class="section-header">
                     <span class="section-tag">Blog</span>
-                    <h2>Coming Soon</h2>
-                    <p>I am working on writing insightful articles about AI, Data Science, and my journey as a researcher. Stay tuned!</p>
+                    <h2>Insights &amp; Perspectives</h2>
+                    <p>Thoughts on AI, Data Science, digital wellness, and my journey as a researcher</p>
                 </div>
-                <div style="text-align: center; padding: 60px 0; color: #8A8AAA;">
-                    <i class="fas fa-pen-fancy" style="font-size: 4rem; color: #C9A84C; margin-bottom: 20px; display: block;"></i>
-                    <h3 style="color: #1A1A2E;">Blog under construction 🚧</h3>
-                    <p>Check back soon for updates.</p>
+
+                <div class="blog-post">
+                    <a href="#" data-page="blog" class="blog-back-btn">
+                        <i class="fas fa-arrow-left"></i> All Posts
+                    </a>
+
+                    <div class="blog-post-header">
+                        <div class="blog-post-meta">
+                            <span class="meta-tag">Digital Wellness</span>
+                            <span><i class="fas fa-calendar-alt" style="margin-right: 6px; color: #C9A84C;"></i> 2026</span>
+                            <span><i class="fas fa-clock" style="margin-right: 6px; color: #C9A84C;"></i> 5 min read</span>
+                        </div>
+                        <h1 class="blog-post-title">Brain Rot (ব্রেইন রট): মগজের অবক্ষয়</h1>
+                        <p class="blog-post-subtitle">How endless scrolling is quietly eroding our attention and thinking capacity</p>
+                    </div>
+
+                    <div class="blog-post-body">
+                        <p>
+                            <strong>Brain Rot (ব্রেইন রট)</strong> বলতে মূলত অতিরিক্ত সোশ্যাল মিডিয়া বা ইন্টারনেট ব্যবহারের কারণে মানুষের মনোযোগ ও চিন্তা করার ক্ষমতা কমে যাওয়ার মানসিক অবস্থাকে বোঝায়; যখন আমরা ঘণ্টার পর ঘণ্টা টিকটক, ফেসবুক রিলস বা ইউটিউব শর্টসের অর্থহীন ও নিম্নমানের কন্টেন্ট স্ক্রোল করতে থাকি, তখন আমাদের মগজ অলস ও ক্লান্ত হয়ে পড়ে এবং কোনো গভীর বা গুরুত্বপূর্ণ কাজে মনোযোগ দেওয়া কঠিন হয়ে দাঁড়ায়, আর অনলাইনের এই অতিরিক্ত ও অপচয়মূলক ব্যবহারের ফলে মনের ভেতরে যে ঝাপসা ও অলস অনুভূতি তৈরি হয় তাকেই চলতি ভাষায় <strong>"ব্রেইন রট"</strong> বা <strong>মগজের অবক্ষয়</strong> বলা হয়।
+                        </p>
+
+                        <div class="blog-highlight">
+                            <i class="fas fa-lightbulb" style="color: #C9A84C; margin-right: 8px;"></i>
+                            <strong>Key Insight:</strong> The term "Brain Rot" was officially recognized by Oxford as the Word of the Year 2024 — a testament to how deeply digital content consumption is reshaping our cognitive habits.
+                        </div>
+
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #1A1A2E; margin: 30px 0 16px;">তথ্যসূত্র (References)</h3>
+
+                        <div class="blog-references">
+                            <div class="reference-item">
+                                <div class="reference-number">1</div>
+                                <div class="reference-content">
+                                    <h4>Oxford Languages (Word of the Year 2024)</h4>
+                                    <p>অক্সফোর্ড এটি পর্যালোচনা করে সামাজিক যোগাযোগ মাধ্যমে অতিরিক্ত নিম্নমানের কনটেন্ট আসক্তির প্রকাশ হিসেবে আনুষ্ঠানিকভাবে বছরের সেরা শব্দ নির্বাচিত করে।</p>
+                                    <span class="source"><i class="fas fa-book"></i> Oxford University Press (OUP) – Oxford Word of the Year 2024 Release</span>
+                                </div>
+                            </div>
+
+                            <div class="reference-item">
+                                <div class="reference-number">2</div>
+                                <div class="reference-content">
+                                    <h4>Mental Health &amp; Digital Wellness Studies</h4>
+                                    <p>প্রযুক্তিবিদ ও মনোবিজ্ঞানীরা ডিজিটাল ডিভাইসে অবিরাম অ্যালগরিদমভিত্তিক শর্ট-ফর্ম ভিডিও দেখার ফলে মানুষের স্বল্পমেয়াদী মনোযোগের বিস্তার (Short Attention Span) কমে যাওয়া বোঝাতে এটি ব্যবহার করেন।</p>
+                                    <span class="source"><i class="fas fa-book"></i> MIT Technology Review &amp; Psychology Today Articles on "Digital Brain Rot"</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p style="margin-top: 28px; color: #8A8AAA; font-size: 0.9rem; font-style: italic;">
+                            <i class="fas fa-pen" style="color: #C9A84C; margin-right: 6px;"></i>
+                            Published in the Digital Wellness category. Stay tuned for more articles on AI, data science, and mindful technology use.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
